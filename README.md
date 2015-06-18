@@ -40,7 +40,7 @@ implicit val boxMonad: Monad[Box] = new Monad[Box] {
   }
 
   def flatMap[A, B](fa: Box[A])(f: A => Box[B]): Box[B] = {
-    println("Box's monad's map")
+    println("Box's monad's flatMap")
     f(fa.a)
   }
 
@@ -94,6 +94,7 @@ For example, if we've got these services:
 import cats.arrow.Compose, cats.syntax.all._
 import com.twitter.util.Future
 import com.twitter.finagle.Service
+import io.catbird.finagle._
 
 val is = Service.mk[Int, String](i => Future.value(i.toString))
 val si = Service.mk[String, Int](s => Future(s.toInt))

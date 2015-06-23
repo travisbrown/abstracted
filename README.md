@@ -1,5 +1,7 @@
 # Abstracted
 
+[![Build status](https://img.shields.io/travis/travisbrown/abstracted/master.svg)](http://travis-ci.org/travisbrown/abstracted)
+
 This is a small proof of concept that demonstrates how to implement a Scala
 macro that allows us to "forget" all of a value's methods and only use
 enrichment methods (which will usually be provided via a type class).

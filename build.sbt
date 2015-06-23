@@ -4,7 +4,6 @@ lazy val sharedSettings = Seq(
   crossScalaVersions := Seq("2.10.5", "2.11.6"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-compiler" % scalaVersion.value,
-    "org.scalacheck" %% "scalacheck" % "1.12.4" % "test",
     "org.scalatest" %% "scalatest" % "2.2.5" % "test"
   ),
   libraryDependencies ++= (

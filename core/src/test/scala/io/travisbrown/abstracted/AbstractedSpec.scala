@@ -1,11 +1,8 @@
 package io.travisbrown.abstracted
 
-import org.scalacheck.{ Arbitrary, Gen, Properties }
-import org.scalacheck.Prop._
 import org.scalatest.{ Matchers, FlatSpec }
-import org.scalatest.prop.Checkers
 
-class AbstractedSpec extends FlatSpec with Matchers with Checkers {
+class AbstractedSpec extends FlatSpec with Matchers {
   val numbers = (1 to 10).toList
   val incremented = numbers.map(_ + 1)
 

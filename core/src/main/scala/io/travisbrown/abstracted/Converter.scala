@@ -9,7 +9,7 @@ trait Converter[A, B] {
   def apply(a: Empty[A]): B
 }
 
-private[abstracted] object Converter extends internal.MacrosCompat {
+private[abstracted] final object Converter extends internal.MacrosCompat {
   implicit def materialize[A, B]: Converter[A, B] = macro materializeImpl[A, B]
 
   def materializeImpl[A, B](c: Context)(implicit
@@ -26,7 +26,7 @@ private[abstracted] object Converter extends internal.MacrosCompat {
     c.Expr[Converter[A, B]](
       q"""
         new Converter[$A, ${ resultType(c)(view.tpe) }] {
-          def apply(e: Empty[$A]) = $view(e.a)
+          final def apply(e: Empty[$A]) = $view(e.a)
         }
       """
     )

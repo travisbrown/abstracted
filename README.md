@@ -1,6 +1,8 @@
 # Abstracted
 
 [![Build status](https://img.shields.io/travis/travisbrown/abstracted/master.svg)](http://travis-ci.org/travisbrown/abstracted)
+[![Coverage status](https://img.shields.io/codecov/c/github/travisbrown/iteratee/master.svg)](https://codecov.io/github/travisbrown/abstracted)
+[![Maven Central](https://img.shields.io/maven-central/v/io.travisbrown/abstracted_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/io.travisbrown/abstracted_2.11)
 
 This is a small proof of concept that demonstrates how to implement a Scala
 macro that allows us to "forget" all of a value's methods and only use
@@ -150,3 +152,13 @@ It seems like it works. The examples above can be run by opening up a REPL with
 up in cats, although there's nothing cats-specific about the macro itself or the
 surrounding machinery.
 
+## License
+
+abstracted is licensed under the **[Apache License, Version 2.0][apache]** (the
+"License"); you may not use this software except in compliance with the License.
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

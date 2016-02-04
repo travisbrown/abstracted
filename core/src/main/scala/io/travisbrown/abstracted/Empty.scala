@@ -5,8 +5,6 @@ package io.travisbrown.abstracted
  */
 case class Empty[A](a: A)
 
-private[abstracted] object Empty {
-  implicit def convert[A, B](e: Empty[A])(implicit
-    converter: Converter[A, B]
-  ): B = converter(e)
+private[abstracted] final object Empty {
+  implicit def convert[A, B](e: Empty[A])(implicit converter: Converter[A, B]): B = converter(e)
 }

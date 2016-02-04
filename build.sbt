@@ -24,7 +24,8 @@ lazy val sharedSettings = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .settings(sharedSettings)
+  .settings(sharedSettings ++ publishSettings)
+  .settings(noPublishSettings)
   .aggregate(core, demo)
   .dependsOn(core)
 
@@ -82,7 +83,18 @@ lazy val publishSettings = Seq(
         <url>https://twitter.com/travisbrown</url>
       </developer>
     </developers>
-  )
+  ),
+  credentials ++= (
+    for {
+      username <- Option(System.getenv().get("SONATYPE_USERNAME"))
+      password <- Option(System.getenv().get("SONATYPE_PASSWORD"))
+    } yield Credentials(
+      "Sonatype Nexus Repository Manager",
+      "oss.sonatype.org",
+      username,
+      password
+    )
+  ).toSeq
 )
 
 lazy val noPublishSettings = Seq(
@@ -90,15 +102,3 @@ lazy val noPublishSettings = Seq(
   publishLocal := (),
   publishArtifact := false
 )
-
-credentials ++= (
-  for {
-    username <- Option(System.getenv().get("SONATYPE_USERNAME"))
-    password <- Option(System.getenv().get("SONATYPE_PASSWORD"))
-  } yield Credentials(
-    "Sonatype Nexus Repository Manager",
-    "oss.sonatype.org",
-    username,
-    password
-  )
-).toSeq

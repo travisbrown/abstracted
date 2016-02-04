@@ -95,7 +95,7 @@ blocked by the stupid methods that `Service` inherits from `Function1`.
 For example, if we've got these services:
 
 ```scala
-import cats.arrow.Compose, cats.syntax.all._
+import cats.syntax.compose._
 import com.twitter.util.Future
 import com.twitter.finagle.Service
 import io.catbird.finagle._
